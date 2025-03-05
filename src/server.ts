@@ -1,5 +1,6 @@
 import fastify from 'fastify';
 import { knex } from './database';
+import { env } from './env';
 
 const server = fastify();
 
@@ -9,6 +10,6 @@ server.get('/', async () => {
   return tables;
 });
 
-server.listen({ port: 3000 }).then(() => {
-  console.log('Server is running on port 3000');
+server.listen({ port: env.PORT }).then(() => {
+  console.log(`Server is running on port ${env.PORT}`);
 });
